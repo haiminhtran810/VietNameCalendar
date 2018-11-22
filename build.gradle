@@ -5,6 +5,7 @@ buildscript {
     repositories {
         google()
         jcenter()
+        maven { url 'https://maven.fabric.io/public' }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.2.0'
@@ -19,9 +20,25 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven { url 'https://maven.fabric.io/public' }
     }
 }
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+ext {
+    versionCode_dev = 1
+    versionName_dev = '1.0'
+
+    versionCode_product = 1
+    versionName_product = '1.0'
+
+    paging_version = '2.1.0-beta01'
+    lifecycle_version = '2.0.0'
+
+    koin_version = '1.0.2'
+
+    version_sp = '27.1.1'
 }
