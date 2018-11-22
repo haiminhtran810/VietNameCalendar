@@ -4,30 +4,129 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'
+
 android {
     compileSdkVersion 28
+
+    flavorDimensions "default"
+
+    buildToolsVersion '28.0.2'
+
     defaultConfig {
         applicationId "home.learn.hmt.calendarvn_android"
         minSdkVersion 23
         targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
+            buildConfigField "boolean", "MOCK_DATA", "false"
+            // xuất ra lỗi
+            debuggable false
+            // tối ưu hóa
+            // Shrink your code
+            //Be aware that code shrinking slows down the build time
+            minifyEnabled true
+            // mã hóa
+            useProguard true
+            // Tối giản res
+            //Resource shrinking is available with the Android plugin for Gradle,
+            // which removes unused resources from your packaged app, including unused resources in code libraries
+            shrinkResources = true
+            // the proguardFiles property specifies the following ProGuard rules
+            //Tip: For even more code shrinking, try the proguard-android-optimize.txt file located in the same directory.
+            // It includes the same ProGuard rules, but with other optimizations that perform analysis at the bytecode level—inside and across methods—to reduce your APK size further and help it run faster.
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            buildConfigField "boolean", "MOCK_DATA", "false"
+            // xuất ra lỗi
+            debuggable true
+            useProguard false
+            // tối ưu hóa
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    productFlavors {
+        prd {
+            versionCode rootProject.ext.versionCode_product
+            versionName rootProject.ext.versionName_product
+            applicationIdSuffix = ".prd"
+            // app name của ứng dụng
+            resValue "string", "app_name", "Movie DB PRD"
+        }
+        stg {
+            versionCode rootProject.ext.versionCode_dev
+            versionName rootProject.ext.versionName_dev
+            // khi build sẽ gán và đuôi của applicationId
+            applicationIdSuffix = ".stg"
+            // app name của ứng dụng
+            resValue "string", "app_name", "Movie DB STG"
+        }
+    }
+
+    defaultConfig {
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    androidExtensions {
+        experimental = true
+    }
+
+    applicationVariants.all { variant ->
+        def BASE_URL = "https://api.themoviedb.org/3/"
+        variant.buildConfigField "String", "BASE_URL", "\"${BASE_URL}\""
+    }
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "com.android.support:appcompat-v7:$version_sp"
+    implementation "com.android.support:support-v4:$version_sp"
+    implementation "com.android.support:recyclerview-v7:27.1.1"
+    implementation "com.android.support:cardview-v7:27.1.1"
+    implementation "com.android.support:design:27.1.1"
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    // RxJava - RxAndroid
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.3'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
+
+    // Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.3'
+    implementation "com.squareup.retrofit2:adapter-rxjava2:2.4.0"
+
+    //AHBottomNavigation
+    implementation 'com.aurelhubert:ahbottomnavigation:2.1.0'
+
+    //glide
+    implementation 'com.github.bumptech.glide:glide:4.8.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
+
+    // koin
+    // Koin for Android
+    implementation "org.koin:koin-android:$koin_version"
+    // Koin Android Scope feature
+    implementation "org.koin:koin-android-scope:$koin_version"
+    // Koin Android ViewModel feature
+    implementation "org.koin:koin-android-viewmodel:$koin_version"
 }
