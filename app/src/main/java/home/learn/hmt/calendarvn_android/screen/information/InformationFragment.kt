@@ -1,26 +1,20 @@
-package home.learn.hmt.calendarvn_android.screen.home
+package home.learn.hmt.calendarvn_android.screen.information
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import home.learn.hmt.calendarvn_android.BR
 import home.learn.hmt.calendarvn_android.R
 import home.learn.hmt.calendarvn_android.base.BaseFragment
-import org.koin.androidx.viewmodel.ext.android.viewModel
 
-
-class HomeFragment : BaseFragment() {
+class InformationFragment : BaseFragment() {
     companion object {
-        fun newInstance() = HomeFragment()
+        const val TAG = "InformationFragment"
+        fun newInstance() = InformationFragment()
     }
 
-    private val viewModelLifeCycle: HomeViewModel by viewModel<HomeViewModel>()
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.home_fragment,container,false)
+        return inflater.inflate(R.layout.infor_fragment, container, false)
     }
 
     override fun initView() {
@@ -34,5 +28,4 @@ class HomeFragment : BaseFragment() {
     override fun handlers() {
         super.handlers()
     }
-
 }
