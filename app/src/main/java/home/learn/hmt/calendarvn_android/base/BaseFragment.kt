@@ -11,33 +11,20 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import home.learn.hmt.calendarvn_android.R
 
-abstract class BaseFragment<viewDataBinding : ViewDataBinding, viewModelLifeCycle : BaseViewModel<*>> : Fragment(), BaseNavigator {
-    lateinit var viewBinding: viewDataBinding
-    abstract val viewModelLifeCycle: viewModelLifeCycle
-    abstract val bindingVariable: Int
-
-    @get:LayoutRes
-    abstract val layoutId: Int
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        viewBinding = DataBindingUtil.inflate(inflater, layoutId, container, false)
-        return viewBinding.root
-    }
+abstract class BaseFragment : Fragment(), BaseNavigator {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewBinding.apply {
-            setVariable(bindingVariable, viewModelLifeCycle)
-            setLifecycleOwner(this@BaseFragment)
-            root.isClickable = false
-            executePendingBindings()
-        }
+        initView()
+        handlers()
+        observe()
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        viewModelLifeCycle.onActivityDestroy()
-    }
+    open fun initView() {}
+
+    open fun handlers() {}
+
+    open fun observe() {}
 
     fun findFragment(TAG: String): Fragment? {
         return activity?.supportFragmentManager?.findFragmentByTag(TAG)
