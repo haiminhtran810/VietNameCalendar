@@ -1,6 +1,5 @@
 package home.learn.hmt.calendarvn_android.di
 
-import androidx.lifecycle.ViewModel
 import home.learn.hmt.calendarvn_android.screen.MainViewModel
 import home.learn.hmt.calendarvn_android.screen.home.HomeViewModel
 import home.learn.hmt.calendarvn_android.screen.information.InformationViewModel
