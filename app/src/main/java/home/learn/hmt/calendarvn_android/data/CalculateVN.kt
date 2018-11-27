@@ -1,8 +1,5 @@
-package home.learn.hmt.calendarvn_android.data.remote
+package home.learn.hmt.calendarvn_android.data
 
-import home.learn.hmt.calendarvn_android.data.LOCAL_TIMEZONE
-import home.learn.hmt.calendarvn_android.data.PI
-import home.learn.hmt.calendarvn_android.data.SUNLONG_MAJOR
 import java.util.*
 import java.sql.Date
 
@@ -350,7 +347,7 @@ fun tietKhi(D: Int, M: Int, Y: Int): Int {
         for (i in 0..23) {
             a = daysBetween2Dates(moc[i][0], moc[i][1], Y, D, M, Y)
             b = daysBetween2Dates(moc[i][0], moc[i][1], Y, moc[i + 1][0],
-                moc[i + 1][1], Y)
+                    moc[i + 1][1], Y)
             if (a < 0) {
                 return 23
             } else {
