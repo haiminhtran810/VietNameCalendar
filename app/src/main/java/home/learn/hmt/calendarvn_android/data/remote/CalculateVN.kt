@@ -5,9 +5,6 @@ import home.learn.hmt.calendarvn_android.data.PI
 import home.learn.hmt.calendarvn_android.data.SUNLONG_MAJOR
 import java.util.*
 import java.sql.Date
-import android.telecom.Call.Details.can
-import android.telecom.Call.Details.can
-import android.telecom.Call.Details.can
 
 
 fun INT(d: Double): Int {
