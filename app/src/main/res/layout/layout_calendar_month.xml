@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <LinearLayout
+        android:id="@+id/view_calendar_month_layout_days"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/warmGrey"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/dp_10"
+        android:paddingTop="@dimen/dp_10"
+        >
+
+        <TextView
+            android:text="@string/mon"
+            style="@style/Text_Day_Of_Week"
+            />
+
+        <TextView
+            android:text="@string/tus"
+            style="@style/Text_Day_Of_Week"
+            />
+
+        <TextView
+            android:text="@string/wes"
+            style="@style/Text_Day_Of_Week"
+            />
+
+        <TextView
+            android:text="@string/thurs"
+            style="@style/Text_Day_Of_Week"
+            />
+
+        <TextView
+            android:text="@string/six"
+            style="@style/Text_Day_Of_Week"
+            />
+
+        <TextView
+            android:text="@string/sat"
+            android:textColor="@color/redPink"
+            style="@style/Text_Day_Of_Week"
+            />
+
+        <TextView
+            android:text="@string/sunday"
+            android:textColor="@color/redPink"
+            style="@style/Text_Day_Of_Week"
+            />
+    </LinearLayout>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/whiteFour"
+        android:paddingBottom="@dimen/dp_5"
+        android:paddingTop="@dimen/dp_5"
+        />
+
+</LinearLayout>

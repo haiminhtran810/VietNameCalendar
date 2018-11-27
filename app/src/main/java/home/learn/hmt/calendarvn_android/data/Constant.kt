@@ -2,6 +2,8 @@ package home.learn.hmt.calendarvn_android.data
 
 const val LOCAL_TIMEZONE = 7.0
 const val PI = Math.PI
+const val NUMBER_OF_WEEKS_IN_MONTH = 6
+const val NUMBER_OF_DAYS_IN_WEEK = 7
 
 val SUNLONG_MAJOR = arrayOf(19 * PI / 12,
     5 * PI / 3, 7 * PI / 4, 11 * PI / 6, 23 * PI / 12, 0.0, PI / 12,
@@ -43,8 +45,8 @@ val GIO = arrayOf("23h-1h", "1h-3h", "3h-5h",
     "5h-7h", "7h-9h", "9h-11h", "11h-13h", "13h-15h", "15h-17h",
     "17h-19h", "19h-21h", "21h-23h")
 
-val THU = arrayOf("Chu nhat", "Thu hai", "Thu ba",
-    "Thu tu", "Thu nam", "Thu sau", "Thu bay")
+val THU = arrayOf("Chủ Nhật", "Thứ Hai", "Thứ Ba",
+    "Thứ Tư", "Thứ Năm", "Thứ Sáu", "Thứ Bảy")
 
 val CHI = arrayOf("Ty (chuot)", "Suu", "Dan",
     "Mao", "Thin", "Ty (ran)", "Ngo", "Mui", "Than", "Dau", "Tuat",
@@ -52,3 +54,7 @@ val CHI = arrayOf("Ty (chuot)", "Suu", "Dan",
 
 val CAN = arrayOf("Giap", "At", "Binh", "Dinh",
     "Mau", "Ky", "Canh", "Tan", "Nham", "Quy")
+
+val MONTH = arrayOf("Tháng 1", "Tháng 2", "Tháng 3",
+    "Tháng 4", "Tháng 5", "Tháng 6", "Tháng 7", "Tháng 8", "Tháng 9", "Tháng 10", "Tháng 11",
+    "Tháng 12")
