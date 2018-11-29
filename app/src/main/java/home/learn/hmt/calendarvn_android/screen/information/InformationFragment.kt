@@ -1,6 +1,5 @@
 package home.learn.hmt.calendarvn_android.screen.information
 
-import android.location.Location
 import android.os.Bundle
 import android.os.Handler
 import android.view.LayoutInflater
@@ -9,9 +8,9 @@ import android.view.ViewGroup
 import home.learn.hmt.calendarvn_android.R
 import home.learn.hmt.calendarvn_android.base.BaseFragment
 import home.learn.hmt.calendarvn_android.data.FORMAT_TIME
+import home.learn.hmt.calendarvn_android.screen.information.adapter.FragmentDayAdapter
 import kotlinx.android.synthetic.main.infor_fragment.*
 import java.text.SimpleDateFormat
-import java.time.LocalDateTime
 import java.util.*
 
 class InformationFragment : BaseFragment() {
@@ -21,16 +20,22 @@ class InformationFragment : BaseFragment() {
     }
 
     private var handler: Handler? = null
+    private var fragmentDayAdapter: FragmentDayAdapter? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+        savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.infor_fragment, container, false)
     }
 
     override fun initView() {
         super.initView()
         handler = Handler()
+        setAdapterDayFragment()
         setTime()
+    }
+
+    private fun setAdapterDayFragment() {
+        //fragmentDayAdapter = FragmentDayAdapter(fragmentManager,)
     }
 
     fun setTime() {
