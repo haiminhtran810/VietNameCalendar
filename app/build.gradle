@@ -62,7 +62,7 @@ android {
             versionName rootProject.ext.versionName_product
             applicationIdSuffix = ".prd"
             // app name của ứng dụng
-            resValue "string", "app_name", "Movie DB PRD"
+            resValue "string", "app_name", "Calendar PRO"
         }
         stg {
             versionCode rootProject.ext.versionCode_dev
@@ -70,7 +70,7 @@ android {
             // khi build sẽ gán và đuôi của applicationId
             applicationIdSuffix = ".stg"
             // app name của ứng dụng
-            resValue "string", "app_name", "Movie DB STG"
+            resValue "string", "app_name", "Calendar STG"
         }
     }
 
@@ -85,8 +85,6 @@ android {
     androidExtensions {
         experimental = true
     }
-
-
 }
 
 dependencies {
@@ -125,9 +123,9 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
 
     // AndroidX (based on koin-android)
-// Koin AndroidX Scope feature
+    // Koin AndroidX Scope feature
     implementation "org.koin:koin-androidx-scope:$koin_version"
-// Koin AndroidX ViewModel feature
+    // Koin AndroidX ViewModel feature
     implementation "org.koin:koin-androidx-viewmodel:$koin_version"
 
     // ViewModel and LiveData

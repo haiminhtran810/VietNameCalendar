@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import home.learn.hmt.calendarvn_android.R
 import home.learn.hmt.calendarvn_android.base.BaseFragment
+import kotlinx.android.synthetic.main.day_fragment.*
 
 class FragmentDay : BaseFragment() {
     companion object {
@@ -16,7 +17,7 @@ class FragmentDay : BaseFragment() {
             val bundle = Bundle()
             bundle.putInt(TAG, day)
             fragmentDay.arguments = bundle
-            return FragmentDay()
+            return fragmentDay
         }
     }
 
@@ -26,7 +27,6 @@ class FragmentDay : BaseFragment() {
 
     override fun onAttach(context: Context?) {
         super.onAttach(context)
-        item = activity as IGetItem
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -36,6 +36,11 @@ class FragmentDay : BaseFragment() {
 
     override fun initView() {
         super.initView()
+        arguments?.apply {
+            val day = this.getInt(TAG, 0)
+            updateUI(day)
+        }
+
     }
 
     override fun handlers() {
@@ -44,6 +49,10 @@ class FragmentDay : BaseFragment() {
 
     override fun observe() {
         super.observe()
+    }
+
+    fun updateUI(day: Int) {
+        tv_date_information.text = day.toString()
     }
 
     interface IGetItem {
