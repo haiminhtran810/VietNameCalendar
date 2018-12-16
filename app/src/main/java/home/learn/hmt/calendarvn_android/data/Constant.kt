@@ -49,55 +49,55 @@ val GIO = arrayOf("23h-1h", "1h-3h", "3h-5h",
 val THU = arrayOf("Chủ Nhật", "Thứ Hai", "Thứ Ba",
         "Thứ Tư", "Thứ Năm", "Thứ Sáu", "Thứ Bảy")
 
-val CHI = arrayOf("Ty (chuot)", "Suu", "Dan",
-        "Mao", "Thin", "Ty (ran)", "Ngo", "Mui", "Than", "Dau", "Tuat",
-        "Hoi")
+val CHI = arrayOf("Tý", "Sửu", "Dần",
+        "Mão", "Thìn", "Tỵ", "Ngọ", "Mùi", "Thân", "Dậu", "Tuất",
+        "Hợi")
 
-val CAN = arrayOf("Giap", "At", "Binh", "Dinh",
-        "Mau", "Ky", "Canh", "Tan", "Nham", "Quy")
+val CAN = arrayOf("Giáp", "Ất", "Bính", "Đinh",
+        "Mậu", "Kỷ", "Canh", "Tân", "Nhâm", "Qúy")
 
 val MONTH = arrayOf("Tháng 1", "Tháng 2", "Tháng 3",
         "Tháng 4", "Tháng 5", "Tháng 6", "Tháng 7", "Tháng 8", "Tháng 9", "Tháng 10", "Tháng 11",
         "Tháng 12")
 
 val folks = arrayListOf<String>(
-        "Khó mà biết lẽ biết trời\n" +
+        "Khó mà biết lẽ biết trời" +
                 "Biết ăn, biết ở hơn người giàu sang",
-        "Khúc sông bên lở bên bồi,\n" +
+        "Khúc sông bên lở bên bồi," +
                 "Bên lở lở mãi, bên bồi bồi thêm",
         "Con cháu mà dại thì hại ông cha.",
         "Mấy ai biết lúa von, mấy ai biết con hư.",
         "Cha mẹ sinh con, trời sinh tính.",
         "Chim khôn tiếc lông, người khôn tiếc lời",
         "Năng ăn hay đói, năng nói hay lầm",
-        "Miếng ngon nhớ lâu\n" + "Lời đau nhớ đời",
+        "Miếng ngon nhớ lâu" + "Lời đau nhớ đời",
         "Cây muốn lặng, gió chẳng dừng",
-        "Biết thì thưa thốt\n" +
+        "Biết thì thưa thốt" +
                 "Không biết dựa cột mà nghe",
-        "Tiền bạc đi trước\n" +
+        "Tiền bạc đi trước" +
                 "Mực thước đi sau",
-        "Xới cơm thì xới lòng ta\n" +
+        "Xới cơm thì xới lòng ta" +
                 "So đũa thì phải so ra lòng người",
-        "Cười người chớ vội cười lâu\n" +
+        "Cười người chớ vội cười lâu" +
                 "Cười người hôm trước hôm sau người cười",
-        "Làm người chẳng ăn chẳng chơi,\n" +
+        "Làm người chẳng ăn chẳng chơi," +
                 "Khư khư giữ lấy của trời làm chi.",
         "Uống nước nhớ nguồn.",
         "Ăn quả nhớ kẻ trồng cây",
-        "Anh em trong nhà, đóng cửa dạy nhau.\n" +
+        "Anh em trong nhà, đóng cửa dạy nhau." +
                 "Anh em thuận hòa là nhà có phúc.",
-        "Thứ nhất thì tu tại gia,\n" +
+        "Thứ nhất thì tu tại gia," +
                 "Thứ nhì tu chợ, thứ ba tu chùa.",
-        "Muốn máy thì phải có kim,\n" +
+        "Muốn máy thì phải có kim," +
                 "Muốn hay ắt phải đi tìm người xưa.",
-        "Đò dọc phải tránh đò ngang,\n" +
+        "Đò dọc phải tránh đò ngang," +
                 "Ngụ cư phải tránh dân làng cho xa.",
-        "Cơm ăn ba bữa thì cho,\n" +
+        "Cơm ăn ba bữa thì cho," +
                 "Gạo mượn sét chén, xách mo đi đòi.",
-        "Có bột mới khuấy nên hồ,\n" +
+        "Có bột mới khuấy nên hồ," +
                 "Có vôi có gạch mới tô nên nhà.",
-        "Lên non cho biết non cao,\n" +
+        "Lên non cho biết non cao," +
                 "Xuống biển cầm sào cho biết cạn sâu.",
-        "Gần ba mươi tuổi chớ mừng,\n" +
+        "Gần ba mươi tuổi chớ mừng," +
                 "Khó ba mươi tuổi con đừng vội lo."
 )

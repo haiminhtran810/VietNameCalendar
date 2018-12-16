@@ -27,10 +27,11 @@ class FragmentDay : BaseFragment() {
 
     override fun onAttach(context: Context?) {
         super.onAttach(context)
+        // item = parentFragment
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?): View? {
+                              savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.day_fragment, container, false)
     }
 
@@ -56,8 +57,7 @@ class FragmentDay : BaseFragment() {
     }
 
     interface IGetItem {
-        val maxDay: Int
-        val maxDayPre: Int
+        fun maxDay(): Int
+        fun maxDayPre(): Int
     }
-
 }
