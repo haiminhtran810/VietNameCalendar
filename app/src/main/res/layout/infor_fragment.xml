@@ -5,76 +5,91 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/whiteFive"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
 
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/view_page"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@color/blu_main"
-        />
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/img_folk"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/vermillionTwo20"
+            android:scaleType="fitXY" />
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/view_page"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        >
+        android:paddingTop="@dimen/dp_10">
 
-        <LinearLayout
-            android:id="@+id/lg_title"
+        <TextView
+            android:id="@+id/txt_fox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
+            android:paddingStart="@dimen/dp_10"
+            android:paddingEnd="@dimen/dp_10"
+            android:textColor="@color/greyishBrown"
+            android:textSize="@dimen/sp_16"
+            tools:text="Cố lên thôi chứ biết phải làm sao bây giờ đây ta." />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@string/hour"
-                android:textAlignment="center"
-                android:textColor="@android:color/black"
-                />
-
-            <TextView
-                android:id="@+id/tv_month_lunar"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:textAlignment="center"
-                android:textColor="@android:color/black"
-                tools:text="Tháng 10"
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@string/detail"
-                android:textAlignment="center"
-                android:textColor="@android:color/black"
-                />
-        </LinearLayout>
+        <TextView
+            android:id="@+id/txt_author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp_10"
+            android:text="Sưu tầm"
+            android:textColor="@color/greyishBrown"
+            android:textSize="@dimen/sp_14"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_fox" />
 
         <LinearLayout
             android:id="@+id/lg_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/bg_corner_infor"
             android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@id/lg_title"
-            >
+            app:layout_constraintTop_toBottomOf="@id/txt_author">
 
-            <TextView
-                android:id="@+id/tv_hour"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center"
-                android:textColor="@android:color/black"
-                android:textSize="@dimen/sp_26"
-                tools:text="10:18"
-                />
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_day_month_year"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/sp_10"
+                    tools:text="10:18" />
+
+                <TextView
+                    android:id="@+id/tv_hour"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/sp_26"
+                    tools:text="10:18" />
+            </LinearLayout>
+
 
             <TextView
                 android:id="@+id/tv_date_lunar"
@@ -84,8 +99,7 @@
                 android:gravity="center"
                 android:text="21"
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/sp_48"
-                />
+                android:textSize="@dimen/sp_48" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -93,8 +107,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="Ngày Quý Hợi"
-                android:textColor="@android:color/black"
-                />
+                android:textColor="@android:color/black" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

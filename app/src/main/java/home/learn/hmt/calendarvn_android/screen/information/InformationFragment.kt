@@ -20,6 +20,7 @@ class InformationFragment : BaseFragment(), FragmentDay.IGetItem {
 
     companion object {
         const val TAG = "InformationFragment"
+        const val NMF = 20
         fun newInstance() = InformationFragment()
     }
 
@@ -29,7 +30,7 @@ class InformationFragment : BaseFragment(), FragmentDay.IGetItem {
     private var dmyChanger: DayMonthYear? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?): View? {
+                              savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.infor_fragment, container, false)
     }
 
@@ -37,12 +38,17 @@ class InformationFragment : BaseFragment(), FragmentDay.IGetItem {
         super.initView()
         val calendar = Calendar.getInstance()
         dmyCurrent = DayMonthYear(calendar.get(Calendar.DAY_OF_MONTH),
-            calendar.get(Calendar.DAY_OF_MONTH), calendar.get(Calendar.DAY_OF_MONTH), 0, 0)
+                calendar.get(Calendar.DAY_OF_MONTH), calendar.get(Calendar.DAY_OF_MONTH), 0, 0)
         handler = Handler()
         dmyCurrent?.let {
             setAdapterDayFragment(dmyCurrent!!)
         }
         setTime()
+        updateUI()
+    }
+
+    private fun updateUI() {
+        txt_fox.text = folks[Random().nextInt(NMF)]
     }
 
     private fun setAdapterDayFragment(dmy: DayMonthYear) {
@@ -55,19 +61,21 @@ class InformationFragment : BaseFragment(), FragmentDay.IGetItem {
                 adapter = fragmentDayAdapter
                 currentItem = dmyChanger!!.day
                 addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
-                    override fun onPageScrollStateChanged(state: Int) {}
+                    override fun onPageScrollStateChanged(state: Int) {
+                    }
 
                     override fun onPageScrolled(position: Int, positionOffset: Float,
-                        positionOffsetPixels: Int) {
+                                                positionOffsetPixels: Int) {
                     }
 
                     override fun onPageSelected(position: Int) {
+                        updateUI()
                         dmyChanger?.apply {
                             day = position
                             if (position - 1 == maxDayOfMonth(month, year)) {
                                 addDay(dmyChanger!!, 1)
                                 fragmentDayAdapter = FragmentDayAdapter(fragmentManager!!,
-                                    dmyChanger!!)
+                                        dmyChanger!!)
                                 fragmentDayAdapter!!.notifyDataSetChanged()
                                 adapter = fragmentDayAdapter
                                 currentItem = 1
@@ -76,16 +84,14 @@ class InformationFragment : BaseFragment(), FragmentDay.IGetItem {
                             if (position == 0) {
                                 dmyChanger = addDay(dmyChanger!!, -1)
                                 fragmentDayAdapter = FragmentDayAdapter(fragmentManager!!,
-                                    dmyChanger!!)
+                                        dmyChanger!!)
                                 fragmentDayAdapter!!.notifyDataSetChanged()
                                 adapter = fragmentDayAdapter
                                 currentItem = maxDayOfMonth(dmyChanger!!.month, dmyChanger!!.year)
                             }
                             printInfo(dmyChanger!!)
                         }
-
                     }
-
                 })
             }
         }
@@ -94,6 +100,10 @@ class InformationFragment : BaseFragment(), FragmentDay.IGetItem {
     fun printInfo(dmy: DayMonthYear) {
         val can = can(dmy)
         val chi = chi(dmy)
+        val year = "Ngày " + CAN[can[0]] + " " + CHI[chi[0]] + "\n Tháng " + CAN[can[1]] + " " + CHI[chi[1]] + "\n Năm " + CAN[can[2]] + " " + CHI[chi[2]]
+        tv_day_month_year.text = year
+        val lunaDay = lunar2Solar(dmy)
+        tv_date_lunar.text = lunaDay.day.toString()
     }
 
     fun setTime() {
@@ -118,10 +128,15 @@ class InformationFragment : BaseFragment(), FragmentDay.IGetItem {
         super.handlers()
     }
 
-    override val maxDay: Int
-        get() = TODO(
-            "not implemented") //To change initializer of created properties use File | Settings | File Templates.
-    override val maxDayPre: Int
-        get() = TODO(
-            "not implemented") //To change initializer of created properties use File | Settings | File Templates.
+    override fun maxDay(): Int {
+        return maxDayOfMonth(dmyChanger?.month!!, dmyChanger?.year!!)
+    }
+
+    override fun maxDayPre(): Int {
+        if (dmyChanger?.month!! > 1) {
+            return maxDayOfMonth(dmyChanger?.month!! - 1, dmyChanger?.year!!)
+        } else {
+            return 31
+        }
+    }
 }
