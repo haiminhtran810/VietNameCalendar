@@ -11,7 +11,8 @@ class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        supportFragmentManager.beginTransaction().add(R.id.container, InformationFragment.newInstance(), InformationFragment.TAG).commit()
+        supportFragmentManager.beginTransaction().add(R.id.container,
+            InformationFragment.newInstance(), InformationFragment.TAG).commit()
         nav_view.apply {
         }
     }

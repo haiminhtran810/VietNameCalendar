@@ -21,17 +21,12 @@ class FragmentDay : BaseFragment() {
         }
     }
 
-    private val day: Int? = 0
-    private var item: IGetItem? = null
-
-
     override fun onAttach(context: Context?) {
         super.onAttach(context)
-        // item = parentFragment
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+        savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.day_fragment, container, false)
     }
 
