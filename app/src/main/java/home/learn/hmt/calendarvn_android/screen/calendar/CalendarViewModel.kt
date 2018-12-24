@@ -1,4 +1,6 @@
 package home.learn.hmt.calendarvn_android.screen.calendar
 
-class CalendarViewModel {
+import home.learn.hmt.calendarvn_android.base.BaseViewModel
+
+class CalendarViewModel : BaseViewModel(){
 }

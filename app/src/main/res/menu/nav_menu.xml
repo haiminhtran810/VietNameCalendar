@@ -16,6 +16,12 @@
         android:icon="@android:drawable/ic_menu_send"
         android:title="@string/nav_share"
         app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/menu_calendar"
+        android:icon="@android:drawable/ic_menu_send"
+        android:title="@string/nav_calendar"
+        app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/menu_setting"
         android:icon="@android:drawable/ic_menu_send"
