@@ -1,5 +1,6 @@
 package home.learn.hmt.calendarvn_android.screen.information.dayfragment
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +9,10 @@ import home.learn.hmt.calendarvn_android.R
 import home.learn.hmt.calendarvn_android.base.BaseFragment
 import home.learn.hmt.calendarvn_android.calendar.getDayOfWeek
 import home.learn.hmt.calendarvn_android.data.model.DayMonthYear
+import home.learn.hmt.calendarvn_android.screen.information.InformationFragment
 import kotlinx.android.synthetic.main.day_fragment.*
+import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.Subscribe
 
 class FragmentDay : BaseFragment() {
     companion object {
@@ -40,6 +44,21 @@ class FragmentDay : BaseFragment() {
 
     }
 
+    override fun onAttach(context: Context?) {
+        super.onAttach(context)
+        EventBus.getDefault().register(this)
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        EventBus.getDefault().unregister(this)
+    }
+
+    @Subscribe
+    fun onEvent(dayOfWeekData: InformationFragment.DayOfWeekData) {
+        tv_day_of_week.text = dayOfWeekData.day
+    }
+
     override fun handlers() {
         super.handlers()
     }
@@ -52,6 +71,7 @@ class FragmentDay : BaseFragment() {
         tv_date_information.text = day.toString()
         tv_day_of_week.text = dayOfWeek
     }
+
 
     interface IGetItem {
         fun maxDay(): Int
