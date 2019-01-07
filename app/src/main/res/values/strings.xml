@@ -10,6 +10,11 @@
     <string name="six">Sáu</string>
     <string name="sat">Bảy</string>
 
+    <string name="date">Ngày </string>
+    <string name="month">Tháng </string>
+    <string name="year">Năm </string>
+    <string name="hour_chi_can">Giờ %1$d</string>
+
     //Navigation
     <string name="nav_12_cung">12 cung hoàng đạo</string>
     <string name="nav_setting">Cài Đặt</string>

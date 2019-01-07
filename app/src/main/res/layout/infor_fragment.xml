@@ -5,19 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/whiteFive"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        >
 
         <ImageView
             android:id="@+id/img_folk"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/vermillionTwo20"
-            android:scaleType="fitXY" />
+            android:scaleType="fitXY"
+            />
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/view_page"
@@ -26,7 +29,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -34,17 +38,19 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="@dimen/dp_10">
+        android:paddingTop="@dimen/dp_10"
+        >
 
         <TextView
             android:id="@+id/txt_fox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingStart="@dimen/dp_10"
             android:paddingEnd="@dimen/dp_10"
+            android:paddingStart="@dimen/dp_10"
             android:textColor="@color/greyishBrown"
             android:textSize="@dimen/sp_16"
-            tools:text="Cố lên thôi chứ biết phải làm sao bây giờ đây ta." />
+            tools:text="Cố lên thôi chứ biết phải làm sao bây giờ đây ta."
+            />
 
         <TextView
             android:id="@+id/txt_author"
@@ -55,7 +61,8 @@
             android:textColor="@color/greyishBrown"
             android:textSize="@dimen/sp_14"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txt_fox" />
+            app:layout_constraintTop_toBottomOf="@id/txt_fox"
+            />
 
         <LinearLayout
             android:id="@+id/lg_content"
@@ -63,31 +70,45 @@
             android:layout_height="wrap_content"
             android:background="@drawable/bg_corner_infor"
             android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@id/txt_author">
+            app:layout_constraintTop_toBottomOf="@id/txt_author"
+            >
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="vertical">
-
+                android:orientation="vertical"
+                >
                 <TextView
-                    android:id="@+id/tv_day_month_year"
+                    android:id="@+id/tv_hour_can_chi"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
                     android:gravity="center"
                     android:textColor="@android:color/black"
                     android:textSize="@dimen/sp_10"
-                    tools:text="10:18" />
-
+                    tools:text="10:18"
+                    />
                 <TextView
                     android:id="@+id/tv_hour"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
                     android:textColor="@android:color/black"
                     android:textSize="@dimen/sp_26"
-                    tools:text="10:18" />
+                    tools:text="10:18"
+                    />
+                <TextView
+                    android:id="@+id/tv_hour_gold"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/sp_10"
+                    tools:text="Ty, dan mau"
+                    />
             </LinearLayout>
 
 
@@ -99,15 +120,45 @@
                 android:gravity="center"
                 android:text="21"
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/sp_48" />
-
-            <TextView
+                android:textSize="@dimen/sp_48"
+                />
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="Ngày Quý Hợi"
-                android:textColor="@android:color/black" />
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:id="@+id/tv_can_chi_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Ngày Quý Hợi"
+                    android:textColor="@android:color/black"
+                    />
+                <TextView
+                    android:id="@+id/tv_can_chi_month"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Ngày Quý Hợi"
+                    android:textColor="@android:color/black"
+                    />
+                <TextView
+                    android:id="@+id/tv_can_chi_year"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Ngày Quý Hợi"
+                    android:textColor="@android:color/black"
+                    />
+            </LinearLayout>
+
+
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

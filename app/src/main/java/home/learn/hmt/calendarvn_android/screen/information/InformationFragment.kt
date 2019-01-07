@@ -30,7 +30,7 @@ class InformationFragment : BaseFragment(), FragmentDay.IGetItem {
     private var dmyChanger: DayMonthYear? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+        savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.infor_fragment, container, false)
     }
 
@@ -38,10 +38,11 @@ class InformationFragment : BaseFragment(), FragmentDay.IGetItem {
         super.initView()
         val calendar = Calendar.getInstance()
         dmyCurrent = DayMonthYear(calendar.get(Calendar.DAY_OF_MONTH),
-                calendar.get(Calendar.DAY_OF_MONTH), calendar.get(Calendar.DAY_OF_MONTH), 0, 0)
+            calendar.get(Calendar.MONTH) + 1, calendar.get(Calendar.YEAR), 0, 0)
         handler = Handler()
         dmyCurrent?.let {
             setAdapterDayFragment(dmyCurrent!!)
+            printInfo(dmyChanger!!)
         }
         setTime()
         updateUI()
@@ -65,7 +66,7 @@ class InformationFragment : BaseFragment(), FragmentDay.IGetItem {
                     }
 
                     override fun onPageScrolled(position: Int, positionOffset: Float,
-                                                positionOffsetPixels: Int) {
+                        positionOffsetPixels: Int) {
                     }
 
                     override fun onPageSelected(position: Int) {
@@ -73,9 +74,9 @@ class InformationFragment : BaseFragment(), FragmentDay.IGetItem {
                         dmyChanger?.apply {
                             day = position
                             if (position - 1 == maxDayOfMonth(month, year)) {
-                                addDay(dmyChanger!!, 1)
+                                dmyChanger = addDay(dmyChanger!!, 1)
                                 fragmentDayAdapter = FragmentDayAdapter(fragmentManager!!,
-                                        dmyChanger!!)
+                                    dmyChanger!!)
                                 fragmentDayAdapter!!.notifyDataSetChanged()
                                 adapter = fragmentDayAdapter
                                 currentItem = 1
@@ -84,7 +85,7 @@ class InformationFragment : BaseFragment(), FragmentDay.IGetItem {
                             if (position == 0) {
                                 dmyChanger = addDay(dmyChanger!!, -1)
                                 fragmentDayAdapter = FragmentDayAdapter(fragmentManager!!,
-                                        dmyChanger!!)
+                                    dmyChanger!!)
                                 fragmentDayAdapter!!.notifyDataSetChanged()
                                 adapter = fragmentDayAdapter
                                 currentItem = maxDayOfMonth(dmyChanger!!.month, dmyChanger!!.year)
@@ -100,20 +101,34 @@ class InformationFragment : BaseFragment(), FragmentDay.IGetItem {
     fun printInfo(dmy: DayMonthYear) {
         val can = can(dmy)
         val chi = chi(dmy)
-        val year = "Ngày " + CAN[can[0]] + " " + CHI[chi[0]] + "\n Tháng " + CAN[can[1]] + " " + CHI[chi[1]] + "\n Năm " + CAN[can[2]] + " " + CHI[chi[2]]
-        tv_day_month_year.text = year
-        val lunaDay = lunar2Solar(dmy)
+        tv_can_chi_date.text = resources.getString(
+            R.string.date) + " " + CAN[can[0]] + " " + CHI[chi[0]]
+        tv_can_chi_month.text = resources.getString(
+            R.string.month) + " " + CAN[can[1]] + " " + CHI[chi[1]]
+        tv_can_chi_year.text = resources.getString(
+            R.string.year) + " " + CAN[can[2]] + " " + CHI[chi[2]]
+        val lunaDay = solar2Lunar(dmy)
         tv_date_lunar.text = lunaDay.day.toString()
+        val hour = gioHoangDao(dmy)
+        var hourGold = ""
+        hour?.let {
+            for (i in it) {
+                hourGold += CHI[i] + ", "
+            }
+        }
+        tv_hour_gold.text = hourGold
+
     }
 
-    fun setTime() {
+    private fun setTime() {
         val time = object : Runnable {
             override fun run() {
-                val aGMTCalendar = Calendar.getInstance(TimeZone.getTimeZone("GMT+7:00"))
-                val time = aGMTCalendar.time
-                val timeFormat = SimpleDateFormat(FORMAT_TIME, Locale.getDefault())
+                val time = Date(System.currentTimeMillis())
+                val hour = CHI[(time.hours / 2)]
+                val timeFormat = SimpleDateFormat(FORMAT_TIME_24)
                 val timeString = timeFormat.format(time.time)
                 tv_hour.text = timeString
+                tv_hour_can_chi.text = resources.getString(R.string.hour) + " " + hour
                 handler?.postDelayed(this, 1000)
             }
         }
@@ -133,10 +148,10 @@ class InformationFragment : BaseFragment(), FragmentDay.IGetItem {
     }
 
     override fun maxDayPre(): Int {
-        if (dmyChanger?.month!! > 1) {
-            return maxDayOfMonth(dmyChanger?.month!! - 1, dmyChanger?.year!!)
+        return if (dmyChanger?.month!! > 1) {
+            maxDayOfMonth(dmyChanger?.month!! - 1, dmyChanger?.year!!)
         } else {
-            return 31
+            31
         }
     }
 }
