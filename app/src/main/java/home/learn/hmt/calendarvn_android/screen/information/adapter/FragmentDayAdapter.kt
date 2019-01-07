@@ -12,7 +12,7 @@ class FragmentDayAdapter(
     private val dmy: DayMonthYear
 ) : FragmentPagerAdapter(fm) {
     override fun getItem(position: Int): Fragment {
-        return FragmentDay.newInstance(position)
+        return FragmentDay.newInstance(position, dmy)
     }
 
     override fun getCount(): Int {
