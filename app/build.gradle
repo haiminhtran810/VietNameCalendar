@@ -150,4 +150,7 @@ dependencies {
 
     // optional - Test helpers for LiveData
     testImplementation "androidx.arch.core:core-testing:$lifecycle_version"
+
+    // eventbus
+    implementation "org.greenrobot:eventbus:$evenbus_version"
 }
