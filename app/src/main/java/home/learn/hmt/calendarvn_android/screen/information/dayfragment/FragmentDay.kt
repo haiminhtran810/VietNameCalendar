@@ -8,16 +8,19 @@ import android.view.ViewGroup
 import home.learn.hmt.calendarvn_android.R
 import home.learn.hmt.calendarvn_android.base.BaseFragment
 import home.learn.hmt.calendarvn_android.calendar.getDayOfWeek
+import home.learn.hmt.calendarvn_android.data.folks
 import home.learn.hmt.calendarvn_android.data.model.DayMonthYear
 import home.learn.hmt.calendarvn_android.screen.information.InformationFragment
 import kotlinx.android.synthetic.main.day_fragment.*
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
+import java.util.*
 
 class FragmentDay : BaseFragment() {
     companion object {
         const val TAG = "FragmentDay"
         const val TAG_DMY = "FragmentDayDMY"
+        const val NMF = 20
         fun newInstance(day: Int, dmy: DayMonthYear): FragmentDay {
             val fragmentDay = FragmentDay()
             val dayOfWeek = getDayOfWeek(dmy)
@@ -70,6 +73,7 @@ class FragmentDay : BaseFragment() {
     fun updateUI(day: Int, dayOfWeek: String) {
         tv_date_information.text = day.toString()
         tv_day_of_week.text = dayOfWeek
+        txt_fox.text = folks[Random().nextInt(NMF)]
     }
 
 

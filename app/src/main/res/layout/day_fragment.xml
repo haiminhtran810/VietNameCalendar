@@ -31,4 +31,39 @@
         app:layout_constraintTop_toBottomOf="@id/tv_date_information"
         tools:text="27"
         />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_5"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        >
+        <TextView
+            android:id="@+id/txt_fox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:lines="3"
+            android:paddingEnd="@dimen/dp_10"
+            android:paddingStart="@dimen/dp_10"
+            android:textAlignment="center"
+            android:textColor="@color/greyishBrown"
+            android:textSize="@dimen/sp_16"
+            tools:text="Cố lên thôi chứ biết phải làm sao bây giờ đây ta."
+            />
+
+        <TextView
+            android:id="@+id/txt_author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:layout_marginEnd="@dimen/dp_10"
+            android:text="Sưu tầm"
+            android:textColor="@color/greyishBrown"
+            android:textSize="@dimen/sp_14"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_fox"
+            />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

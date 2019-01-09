@@ -62,31 +62,26 @@ val MONTH = arrayOf("Tháng 1", "Tháng 2", "Tháng 3",
     "Tháng 12")
 
 val folks = arrayListOf<String>(
-    "Khó mà biết lẽ biết trời" +
+    "Khó mà biết lẽ biết trời \n" +
         "Biết ăn, biết ở hơn người giàu sang",
-    "Khúc sông bên lở bên bồi," +
+    "Khúc sông bên lở bên bồi,\n" +
         "Bên lở lở mãi, bên bồi bồi thêm",
     "Con cháu mà dại thì hại ông cha.",
     "Mấy ai biết lúa von, mấy ai biết con hư.",
     "Cha mẹ sinh con, trời sinh tính.",
     "Chim khôn tiếc lông, người khôn tiếc lời",
     "Năng ăn hay đói, năng nói hay lầm",
-    "Miếng ngon nhớ lâu" + "Lời đau nhớ đời",
+    "Miếng ngon nhớ lâu \nLời đau nhớ đời",
     "Cây muốn lặng, gió chẳng dừng",
-    "Biết thì thưa thốt" +
-        "Không biết dựa cột mà nghe",
-    "Tiền bạc đi trước" +
-        "Mực thước đi sau",
-    "Xới cơm thì xới lòng ta" +
-        "So đũa thì phải so ra lòng người",
+    "Biết thì thưa thốt\nKhông biết dựa cột mà nghe",
+    "Tiền bạc đi trước\nMực thước đi sau",
+    "Xới cơm thì xới lòng ta \n So đũa thì phải so ra lòng người",
     "Cười người chớ vội cười lâu" +
         "Cười người hôm trước hôm sau người cười",
-    "Làm người chẳng ăn chẳng chơi," +
-        "Khư khư giữ lấy của trời làm chi.",
+    "Làm người chẳng ăn chẳng chơi,\nKhư khư giữ lấy của trời làm chi.",
     "Uống nước nhớ nguồn.",
     "Ăn quả nhớ kẻ trồng cây",
-    "Anh em trong nhà, đóng cửa dạy nhau." +
-        "Anh em thuận hòa là nhà có phúc.",
+    "Anh em trong nhà, đóng cửa dạy nhau.\nAnh em thuận hòa là nhà có phúc.",
     "Thứ nhất thì tu tại gia," +
         "Thứ nhì tu chợ, thứ ba tu chùa.",
     "Muốn máy thì phải có kim," +
