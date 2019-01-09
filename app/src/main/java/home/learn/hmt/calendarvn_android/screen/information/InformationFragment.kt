@@ -22,7 +22,6 @@ class InformationFragment : BaseFragment(), FragmentDay.IGetItem {
 
     companion object {
         const val TAG = "InformationFragment"
-        const val NMF = 20
         fun newInstance() = InformationFragment()
     }
 
@@ -48,11 +47,6 @@ class InformationFragment : BaseFragment(), FragmentDay.IGetItem {
             printInfo(dmyChanger!!)
         }
         setTime()
-        updateUI()
-    }
-
-    private fun updateUI() {
-        txt_fox.text = folks[Random().nextInt(NMF)]
     }
 
     private fun setAdapterDayFragment(dmy: DayMonthYear) {
@@ -73,7 +67,6 @@ class InformationFragment : BaseFragment(), FragmentDay.IGetItem {
                     }
 
                     override fun onPageSelected(position: Int) {
-                        updateUI()
                         dmyChanger?.apply {
                             day = position
                             if (position - 1 == maxDayOfMonth(month, year)) {
@@ -118,8 +111,14 @@ class InformationFragment : BaseFragment(), FragmentDay.IGetItem {
             for (i in it) {
                 hourGold += CHI[i] + ", "
             }
+            if (!hourGold.isNullOrEmpty()) {
+                hourGold = hourGold.substring(0, hourGold.length - 2)
+            }
         }
         tv_hour_gold.text = hourGold
+        tv_month.text = resources.getString(R.string.month) + " " + lunaDay.month.toString()
+        tv_month__year_solar.text = resources.getString(
+            R.string.month) + " " + dmy.month.toString() + " - " + dmy.year.toString()
         val dayOfWeekData = DayOfWeekData(getDayOfWeek(dmy))
         EventBus.getDefault().post(dayOfWeekData)
     }
