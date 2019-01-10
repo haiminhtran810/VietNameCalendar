@@ -2,68 +2,80 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bg_day"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tv_date_information"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="@dimen/sp_80"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="27"
-        />
-    <TextView
-        android:id="@+id/tv_day_of_week"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/greyishBrown"
-        android:textSize="@dimen/sp_48"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_date_information"
-        tools:text="27"
-        />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/notification_background" />
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/dp_5"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        >
-        <TextView
-            android:id="@+id/txt_fox"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_date_information"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/sp_80"
+                android:textStyle="bold"
+                tools:text="27" />
+
+            <TextView
+                android:id="@+id/tv_day_of_week"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/greyishBrown"
+                android:textSize="@dimen/sp_36"
+                android:textStyle="bold"
+                tools:text="Thứ Hai" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lg_fox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:lines="3"
-            android:paddingEnd="@dimen/dp_10"
-            android:paddingStart="@dimen/dp_10"
-            android:textAlignment="center"
-            android:textColor="@color/greyishBrown"
-            android:textSize="@dimen/sp_16"
-            tools:text="Cố lên thôi chứ biết phải làm sao bây giờ đây ta."
-            />
+            android:layout_margin="@dimen/dp_5"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent">
 
-        <TextView
-            android:id="@+id/txt_author"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:layout_marginBottom="@dimen/dp_10"
-            android:layout_marginEnd="@dimen/dp_10"
-            android:text="Sưu tầm"
-            android:textColor="@color/greyishBrown"
-            android:textSize="@dimen/sp_14"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txt_fox"
-            />
+            <TextView
+                android:id="@+id/txt_fox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:lines="3"
+                android:paddingStart="@dimen/dp_10"
+                android:paddingEnd="@dimen/dp_10"
+                android:textAlignment="center"
+                android:textColor="@color/greyishBrown"
+                android:textSize="@dimen/sp_16"
+                tools:text="Cố lên thôi chứ biết phải làm sao bây giờ đây ta." />
+
+            <TextView
+                android:id="@+id/txt_author"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginEnd="@dimen/dp_10"
+                android:layout_marginBottom="@dimen/dp_10"
+                android:text="@string/colection"
+                android:textColor="@color/greyishBrown"
+                android:textSize="@dimen/sp_14"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_fox" />
+        </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
