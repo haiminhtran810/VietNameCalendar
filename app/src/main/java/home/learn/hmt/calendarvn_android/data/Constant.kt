@@ -76,24 +76,24 @@ val folks = arrayListOf<String>(
     "Biết thì thưa thốt\nKhông biết dựa cột mà nghe",
     "Tiền bạc đi trước\nMực thước đi sau",
     "Xới cơm thì xới lòng ta \n So đũa thì phải so ra lòng người",
-    "Cười người chớ vội cười lâu" +
+    "Cười người chớ vội cười lâu \n" +
         "Cười người hôm trước hôm sau người cười",
     "Làm người chẳng ăn chẳng chơi,\nKhư khư giữ lấy của trời làm chi.",
     "Uống nước nhớ nguồn.",
     "Ăn quả nhớ kẻ trồng cây",
     "Anh em trong nhà, đóng cửa dạy nhau.\nAnh em thuận hòa là nhà có phúc.",
-    "Thứ nhất thì tu tại gia," +
+    "Thứ nhất thì tu tại gia, \n" +
         "Thứ nhì tu chợ, thứ ba tu chùa.",
-    "Muốn máy thì phải có kim," +
+    "Muốn máy thì phải có kim, \n" +
         "Muốn hay ắt phải đi tìm người xưa.",
-    "Đò dọc phải tránh đò ngang," +
+    "Đò dọc phải tránh đò ngang, \n" +
         "Ngụ cư phải tránh dân làng cho xa.",
-    "Cơm ăn ba bữa thì cho," +
+    "Cơm ăn ba bữa thì cho, \n" +
         "Gạo mượn sét chén, xách mo đi đòi.",
-    "Có bột mới khuấy nên hồ," +
+    "Có bột mới khuấy nên hồ, \n" +
         "Có vôi có gạch mới tô nên nhà.",
-    "Lên non cho biết non cao," +
+    "Lên non cho biết non cao, \n" +
         "Xuống biển cầm sào cho biết cạn sâu.",
-    "Gần ba mươi tuổi chớ mừng," +
+    "Gần ba mươi tuổi chớ mừng, \n" +
         "Khó ba mươi tuổi con đừng vội lo."
 )

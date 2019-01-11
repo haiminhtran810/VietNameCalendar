@@ -21,6 +21,7 @@
     <string name="nav_flower_hand">Xem hoa tay</string>
     <string name="nav_share">Chia sẻ</string>
     <string name="nav_calendar">Lịch</string>
+    <string name="colection">Sưu tầm</string>
 
     <string-array name="days_sunday_array">
         <item>Sun</item>
