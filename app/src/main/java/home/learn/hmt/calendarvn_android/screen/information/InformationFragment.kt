@@ -1,7 +1,9 @@
 package home.learn.hmt.calendarvn_android.screen.information
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.Handler
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +15,9 @@ import home.learn.hmt.calendarvn_android.data.*
 import home.learn.hmt.calendarvn_android.data.model.DayMonthYear
 import home.learn.hmt.calendarvn_android.screen.information.adapter.FragmentDayAdapter
 import home.learn.hmt.calendarvn_android.screen.information.dayfragment.FragmentDay
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.infor_fragment.*
+import kotlinx.android.synthetic.main.layout_header.*
 import org.greenrobot.eventbus.EventBus
 import java.text.SimpleDateFormat
 import java.util.*
@@ -117,7 +121,7 @@ class InformationFragment : BaseFragment(), FragmentDay.IGetItem {
         }
         tv_hour_gold.text = hourGold
         tv_month.text = resources.getString(R.string.month) + " " + lunaDay.month.toString()
-        tv_month__year_solar.text = resources.getString(
+        tv_header_month.text = resources.getString(
             R.string.month) + " " + dmy.month.toString() + " - " + dmy.year.toString()
         val dayOfWeekData = DayOfWeekData(getDayOfWeek(dmy))
         EventBus.getDefault().post(dayOfWeekData)
@@ -142,8 +146,12 @@ class InformationFragment : BaseFragment(), FragmentDay.IGetItem {
         super.observe()
     }
 
+
     override fun handlers() {
         super.handlers()
+        img_navigation.setOnClickListener {
+
+        }
     }
 
     override fun maxDay(): Int {
