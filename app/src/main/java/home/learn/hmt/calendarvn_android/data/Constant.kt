@@ -1,5 +1,7 @@
 package home.learn.hmt.calendarvn_android.data
 
+import home.learn.hmt.calendarvn_android.R
+
 const val LOCAL_TIMEZONE = 7.0
 const val PI = Math.PI
 const val NUMBER_OF_WEEKS_IN_MONTH = 6
@@ -60,6 +62,14 @@ val CAN = arrayOf("Giáp", "Ất", "Bính", "Đinh",
 val MONTH = arrayOf("Tháng 1", "Tháng 2", "Tháng 3",
     "Tháng 4", "Tháng 5", "Tháng 6", "Tháng 7", "Tháng 8", "Tháng 9", "Tháng 10", "Tháng 11",
     "Tháng 12")
+
+
+val IMAGE_FOX = arrayOf(
+    R.drawable.bg_fox_1, R.drawable.bg_fox_2,
+    R.drawable.bg_fox_3, R.drawable.bg_fox_4,
+    R.drawable.bg_fox_5, R.drawable.bg_fox_6,
+    R.drawable.bg_fox_7, R.drawable.bg_fox_8,
+    R.drawable.bg_fox_9, R.drawable.bg_fox_10)
 
 val folks = arrayListOf<String>(
     "Khó mà biết lẽ biết trời \n" +

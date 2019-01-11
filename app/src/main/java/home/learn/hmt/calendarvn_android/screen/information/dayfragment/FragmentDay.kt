@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import home.learn.hmt.calendarvn_android.R
 import home.learn.hmt.calendarvn_android.base.BaseFragment
 import home.learn.hmt.calendarvn_android.calendar.getDayOfWeek
+import home.learn.hmt.calendarvn_android.data.IMAGE_FOX
 import home.learn.hmt.calendarvn_android.data.folks
 import home.learn.hmt.calendarvn_android.data.model.DayMonthYear
 import home.learn.hmt.calendarvn_android.screen.information.InformationFragment
@@ -16,11 +17,11 @@ import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import java.util.*
 
+
 class FragmentDay : BaseFragment() {
     companion object {
         const val TAG = "FragmentDay"
         const val TAG_DMY = "FragmentDayDMY"
-        const val NMF = 20
         fun newInstance(day: Int, dmy: DayMonthYear): FragmentDay {
             val fragmentDay = FragmentDay()
             val dayOfWeek = getDayOfWeek(dmy)
@@ -70,12 +71,12 @@ class FragmentDay : BaseFragment() {
         super.observe()
     }
 
-    fun updateUI(day: Int, dayOfWeek: String) {
+    private fun updateUI(day: Int, dayOfWeek: String) {
         tv_date_information.text = day.toString()
         tv_day_of_week.text = dayOfWeek
-        txt_fox.text = folks[Random().nextInt(NMF)]
+        txt_fox.text = folks[Random().nextInt(folks.size)]
+        img_bg_calendar.setImageResource(IMAGE_FOX[Random().nextInt(IMAGE_FOX.size)])
     }
-
 
     interface IGetItem {
         fun maxDay(): Int
