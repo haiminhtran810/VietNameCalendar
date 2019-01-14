@@ -7,7 +7,7 @@ const val PI = Math.PI
 const val NUMBER_OF_WEEKS_IN_MONTH = 6
 const val NUMBER_OF_DAYS_IN_WEEK = 7
 
-const val FORMAT_TIME_24 = "HH:mm:ss"
+const val FORMAT_TIME_24 = "HH:mm"
 const val YY_MM_DD = "yy:mm:dd"
 val SUNLONG_MAJOR = arrayOf(19 * PI / 12,
     5 * PI / 3, 7 * PI / 4, 11 * PI / 6, 23 * PI / 12, 0.0, PI / 12,

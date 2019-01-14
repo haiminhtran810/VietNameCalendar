@@ -87,5 +87,10 @@
     <dimen name="sp_40">40sp</dimen>
     <dimen name="sp_46">46sp</dimen>
     <dimen name="sp_48">48sp</dimen>
+    <dimen name="sp_50">50sp</dimen>
+    <dimen name="sp_55">55sp</dimen>
+    <dimen name="sp_60">60sp</dimen>
+    <dimen name="sp_70">70sp</dimen>
     <dimen name="sp_80">80sp</dimen>
+    <dimen name="sp_100">100sp</dimen>
 </resources>

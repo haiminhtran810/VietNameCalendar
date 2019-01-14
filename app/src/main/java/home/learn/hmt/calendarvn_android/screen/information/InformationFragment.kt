@@ -101,11 +101,9 @@ class InformationFragment : BaseFragment(), FragmentDay.IGetItem {
     fun printInfo(dmy: DayMonthYear) {
         val can = can(dmy)
         val chi = chi(dmy)
-        tv_can_chi_date.text = resources.getString(
-            R.string.date) + " " + CAN[can[0]] + " " + CHI[chi[0]]
+        tv_can_chi_date.text = CAN[can[0]] + " " + CHI[chi[0]]
         tv_can_chi_month.text = resources.getString(
-            R.string.month) + " " + CAN[can[1]] + " " + CHI[chi[1]]
-        tv_can_chi_year.text = resources.getString(
+            R.string.month) + " " + CAN[can[1]] + " " + CHI[chi[1]] + "\n" + resources.getString(
             R.string.year) + " " + CAN[can[2]] + " " + CHI[chi[2]]
         val lunaDay = solar2Lunar(dmy)
         tv_date_lunar.text = lunaDay.day.toString()
@@ -120,7 +118,7 @@ class InformationFragment : BaseFragment(), FragmentDay.IGetItem {
             }
         }
         tv_hour_gold.text = hourGold
-        tv_month.text = resources.getString(R.string.month) + " " + lunaDay.month.toString()
+        tv_month.text = lunaDay.month.toString()
         tv_header_month.text = resources.getString(
             R.string.month) + " " + dmy.month.toString() + " - " + dmy.year.toString()
         val dayOfWeekData = DayOfWeekData(getDayOfWeek(dmy))

@@ -39,36 +39,43 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/pinkishGrey"
         >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/greyishBrown"
+            />
 
         <LinearLayout
             android:id="@+id/lg_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@null"
             android:orientation="horizontal"
             app:layout_constraintTop_toBottomOf="@id/txt_author"
             >
 
             <TextView
+                android:id="@+id/tv_hour_can_chi"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="@string/hour"
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/sp_10"
-                tools:text="10:18"
+                android:textSize="@dimen/sp_15"
+                tools:text="Giờ Mão"
                 />
 
             <TextView
-                android:id="@+id/tv_month"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:textAlignment="center"
+                android:gravity="center"
+                android:text="@string/date"
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/sp_26"
+                android:textSize="@dimen/sp_15"
+                tools:text="Ngày"
                 />
 
             <TextView
@@ -77,45 +84,34 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:lines="2"
-                android:text="@string/detail"
+                android:text="@string/month"
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/sp_10"
-                tools:text="Ty, dan mau"
+                android:textSize="@dimen/sp_15"
+                tools:text="Tháng"
                 />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/lg_content"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@null"
             android:orientation="horizontal"
             app:layout_constraintTop_toBottomOf="@id/lg_title"
             >
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:orientation="vertical"
                 >
-
-                <TextView
-                    android:id="@+id/tv_hour_can_chi"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:textColor="@android:color/black"
-                    android:textSize="@dimen/sp_10"
-                    tools:text="10:18"
-                    />
-
                 <TextView
                     android:id="@+id/tv_hour"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:textAlignment="center"
+                    android:gravity="center"
                     android:textColor="@android:color/black"
                     android:textSize="@dimen/sp_26"
                     tools:text="10:18"
@@ -124,27 +120,43 @@
                 <TextView
                     android:id="@+id/tv_hour_gold"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lines="2"
                     android:textColor="@android:color/black"
-                    android:textSize="@dimen/sp_10"
+                    android:textSize="@dimen/sp_15"
                     tools:text="Ty, dan mau"
                     />
             </LinearLayout>
 
 
-            <TextView
-                android:id="@+id/tv_date_lunar"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="center"
-                android:text="21"
-                android:textColor="@android:color/black"
-                android:textSize="@dimen/sp_48"
-                />
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:id="@+id/tv_date_lunar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="21"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/sp_60"
+                    />
+                <TextView
+                    android:id="@+id/tv_can_chi_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:lines="2"
+                    android:text="Ngày Quý Hợi"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/sp_15"
+                    />
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -155,33 +167,25 @@
                 >
 
                 <TextView
-                    android:id="@+id/tv_can_chi_date"
+                    android:id="@+id/tv_month"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="Ngày Quý Hợi"
                     android:textColor="@android:color/black"
+                    android:textSize="@dimen/sp_26"
+                    tools:text="12"
                     />
 
                 <TextView
                     android:id="@+id/tv_can_chi_month"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
                     android:gravity="center"
+                    android:lines="2"
                     android:text="Ngày Quý Hợi"
                     android:textColor="@android:color/black"
-                    />
-
-                <TextView
-                    android:id="@+id/tv_can_chi_year"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="Ngày Quý Hợi"
-                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/sp_15"
                     />
             </LinearLayout>
 
