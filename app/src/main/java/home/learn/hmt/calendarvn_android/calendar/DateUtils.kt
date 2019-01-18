@@ -2,7 +2,7 @@ package home.learn.hmt.calendarvn_android.calendar
 
 import home.learn.hmt.calendarvn_android.data.MONTH
 import home.learn.hmt.calendarvn_android.data.THU
-import home.learn.hmt.calendarvn_android.data.YY_MM_DD
+import home.learn.hmt.calendarvn_android.data.DD_MM_YYYY
 import home.learn.hmt.calendarvn_android.data.model.Calendardate
 import home.learn.hmt.calendarvn_android.data.model.DayMonthYear
 import java.text.SimpleDateFormat
@@ -24,8 +24,8 @@ fun isDateEqual(date1: Calendardate, date2: Calendardate): Boolean {
 }
 
 fun getDayOfWeek(dmy: DayMonthYear): String {
-    val dayFormat = dmy.year.toString() + ":" + dmy.month.toString() + ":" + dmy.day.toString()
-    val simpleDateFormat = SimpleDateFormat(YY_MM_DD)
+    val dayFormat = dmy.day.toString() + "/" + dmy.month.toString() + "/" + dmy.year.toString()
+    val simpleDateFormat = SimpleDateFormat(DD_MM_YYYY)
     val date = simpleDateFormat.parse(dayFormat)
     val day = date.day
     return dayOfWeekToString(day)

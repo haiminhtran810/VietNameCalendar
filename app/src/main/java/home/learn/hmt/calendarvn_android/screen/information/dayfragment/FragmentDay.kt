@@ -73,7 +73,10 @@ class FragmentDay : BaseFragment() {
 
     private fun updateUI(day: Int, dayOfWeek: String) {
         tv_date_information.text = day.toString()
-        tv_day_of_week.text = dayOfWeek
+        val a = tv_day_of_week.text
+        if (tv_day_of_week.text.isNullOrBlank()) {
+            tv_day_of_week.text = dayOfWeek
+        }
         txt_fox.text = folks[Random().nextInt(folks.size)]
         img_bg_calendar.setImageResource(IMAGE_FOX[Random().nextInt(IMAGE_FOX.size)])
     }

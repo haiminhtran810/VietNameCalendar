@@ -3,7 +3,6 @@ package home.learn.hmt.calendarvn_android.screen.information
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.Handler
-import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,7 +14,6 @@ import home.learn.hmt.calendarvn_android.data.*
 import home.learn.hmt.calendarvn_android.data.model.DayMonthYear
 import home.learn.hmt.calendarvn_android.screen.information.adapter.FragmentDayAdapter
 import home.learn.hmt.calendarvn_android.screen.information.dayfragment.FragmentDay
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.infor_fragment.*
 import kotlinx.android.synthetic.main.layout_header.*
 import org.greenrobot.eventbus.EventBus
@@ -41,7 +39,6 @@ class InformationFragment : BaseFragment(), FragmentDay.IGetItem {
 
     override fun initView() {
         super.initView()
-
         val calendar = Calendar.getInstance()
         dmyCurrent = DayMonthYear(calendar.get(Calendar.DAY_OF_MONTH),
             calendar.get(Calendar.MONTH) + 1, calendar.get(Calendar.YEAR), 0, 0)
