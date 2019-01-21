@@ -1,6 +1,5 @@
 package home.learn.hmt.calendarvn_android.screen.information
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.Handler
 import android.view.LayoutInflater
@@ -20,7 +19,7 @@ import org.greenrobot.eventbus.EventBus
 import java.text.SimpleDateFormat
 import java.util.*
 
-class InformationFragment : BaseFragment(), FragmentDay.IGetItem {
+class InformationFragment : BaseFragment() {
 
     companion object {
         const val TAG = "InformationFragment"
@@ -148,18 +147,6 @@ class InformationFragment : BaseFragment(), FragmentDay.IGetItem {
         super.handlers()
         img_navigation.setOnClickListener {
 
-        }
-    }
-
-    override fun maxDay(): Int {
-        return maxDayOfMonth(dmyChanger?.month!!, dmyChanger?.year!!)
-    }
-
-    override fun maxDayPre(): Int {
-        return if (dmyChanger?.month!! > 1) {
-            maxDayOfMonth(dmyChanger?.month!! - 1, dmyChanger?.year!!)
-        } else {
-            31
         }
     }
 
