@@ -1,9 +1,7 @@
 package home.learn.hmt.calendarvn_android.screen.information
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.Handler
-import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,14 +13,13 @@ import home.learn.hmt.calendarvn_android.data.*
 import home.learn.hmt.calendarvn_android.data.model.DayMonthYear
 import home.learn.hmt.calendarvn_android.screen.information.adapter.FragmentDayAdapter
 import home.learn.hmt.calendarvn_android.screen.information.dayfragment.FragmentDay
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.infor_fragment.*
 import kotlinx.android.synthetic.main.layout_header.*
 import org.greenrobot.eventbus.EventBus
 import java.text.SimpleDateFormat
 import java.util.*
 
-class InformationFragment : BaseFragment(), FragmentDay.IGetItem {
+class InformationFragment : BaseFragment() {
 
     companion object {
         const val TAG = "InformationFragment"
@@ -41,7 +38,6 @@ class InformationFragment : BaseFragment(), FragmentDay.IGetItem {
 
     override fun initView() {
         super.initView()
-
         val calendar = Calendar.getInstance()
         dmyCurrent = DayMonthYear(calendar.get(Calendar.DAY_OF_MONTH),
             calendar.get(Calendar.MONTH) + 1, calendar.get(Calendar.YEAR), 0, 0)
@@ -151,18 +147,6 @@ class InformationFragment : BaseFragment(), FragmentDay.IGetItem {
         super.handlers()
         img_navigation.setOnClickListener {
 
-        }
-    }
-
-    override fun maxDay(): Int {
-        return maxDayOfMonth(dmyChanger?.month!!, dmyChanger?.year!!)
-    }
-
-    override fun maxDayPre(): Int {
-        return if (dmyChanger?.month!! > 1) {
-            maxDayOfMonth(dmyChanger?.month!! - 1, dmyChanger?.year!!)
-        } else {
-            31
         }
     }
 

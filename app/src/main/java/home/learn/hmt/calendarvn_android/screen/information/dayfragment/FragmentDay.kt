@@ -13,6 +13,7 @@ import home.learn.hmt.calendarvn_android.data.folks
 import home.learn.hmt.calendarvn_android.data.model.DayMonthYear
 import home.learn.hmt.calendarvn_android.screen.information.InformationFragment
 import kotlinx.android.synthetic.main.day_fragment.*
+import kotlinx.android.synthetic.main.layout_fox.view.*
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import java.util.*
@@ -32,6 +33,8 @@ class FragmentDay : BaseFragment() {
             return fragmentDay
         }
     }
+
+    private var dayOfWeekString: String? = ""
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?): View? {
@@ -60,7 +63,8 @@ class FragmentDay : BaseFragment() {
 
     @Subscribe
     fun onEvent(dayOfWeekData: InformationFragment.DayOfWeekData) {
-        tv_day_of_week.text = dayOfWeekData.day
+        dayOfWeekString = dayOfWeekData.day
+        tv_day_of_week.text = dayOfWeekString
     }
 
     override fun handlers() {
@@ -73,13 +77,15 @@ class FragmentDay : BaseFragment() {
 
     private fun updateUI(day: Int, dayOfWeek: String) {
         tv_date_information.text = day.toString()
-        tv_day_of_week.text = dayOfWeek
-        txt_fox.text = folks[Random().nextInt(folks.size)]
+        if (dayOfWeekString.isNullOrBlank()) {
+            tv_day_of_week.text = dayOfWeek
+        } else {
+            tv_day_of_week.text = dayOfWeekString
+        }
+        lg_fox.apply {
+            txt_fox.text = folks[Random().nextInt(folks.size)]
+        }
         img_bg_calendar.setImageResource(IMAGE_FOX[Random().nextInt(IMAGE_FOX.size)])
     }
 
-    interface IGetItem {
-        fun maxDay(): Int
-        fun maxDayPre(): Int
-    }
 }
