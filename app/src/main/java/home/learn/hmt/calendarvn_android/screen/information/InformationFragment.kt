@@ -11,10 +11,12 @@ import home.learn.hmt.calendarvn_android.base.BaseFragment
 import home.learn.hmt.calendarvn_android.calendar.getDayOfWeek
 import home.learn.hmt.calendarvn_android.data.*
 import home.learn.hmt.calendarvn_android.data.model.DayMonthYear
+import home.learn.hmt.calendarvn_android.screen.MainActivity
 import home.learn.hmt.calendarvn_android.screen.information.adapter.FragmentDayAdapter
 import home.learn.hmt.calendarvn_android.screen.information.dayfragment.FragmentDay
 import kotlinx.android.synthetic.main.infor_fragment.*
 import kotlinx.android.synthetic.main.layout_header.*
+import kotlinx.android.synthetic.main.layout_header.view.*
 import org.greenrobot.eventbus.EventBus
 import java.text.SimpleDateFormat
 import java.util.*
@@ -32,7 +34,7 @@ class InformationFragment : BaseFragment() {
     private var dmyChanger: DayMonthYear? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?): View? {
+                              savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.infor_fragment, container, false)
     }
 
@@ -40,7 +42,7 @@ class InformationFragment : BaseFragment() {
         super.initView()
         val calendar = Calendar.getInstance()
         dmyCurrent = DayMonthYear(calendar.get(Calendar.DAY_OF_MONTH),
-            calendar.get(Calendar.MONTH) + 1, calendar.get(Calendar.YEAR), 0, 0)
+                calendar.get(Calendar.MONTH) + 1, calendar.get(Calendar.YEAR), 0, 0)
         handler = Handler()
         dmyCurrent?.let {
             setAdapterDayFragment(dmyCurrent!!)
@@ -63,7 +65,7 @@ class InformationFragment : BaseFragment() {
                     }
 
                     override fun onPageScrolled(position: Int, positionOffset: Float,
-                        positionOffsetPixels: Int) {
+                                                positionOffsetPixels: Int) {
                     }
 
                     override fun onPageSelected(position: Int) {
@@ -72,7 +74,7 @@ class InformationFragment : BaseFragment() {
                             if (position - 1 == maxDayOfMonth(month, year)) {
                                 dmyChanger = addDay(dmyChanger!!, 1)
                                 fragmentDayAdapter = FragmentDayAdapter(fragmentManager!!,
-                                    dmyChanger!!)
+                                        dmyChanger!!)
                                 fragmentDayAdapter!!.notifyDataSetChanged()
                                 adapter = fragmentDayAdapter
                                 currentItem = 1
@@ -81,7 +83,7 @@ class InformationFragment : BaseFragment() {
                             if (position == 0) {
                                 dmyChanger = addDay(dmyChanger!!, -1)
                                 fragmentDayAdapter = FragmentDayAdapter(fragmentManager!!,
-                                    dmyChanger!!)
+                                        dmyChanger!!)
                                 fragmentDayAdapter!!.notifyDataSetChanged()
                                 adapter = fragmentDayAdapter
                                 currentItem = maxDayOfMonth(dmyChanger!!.month, dmyChanger!!.year)
@@ -98,11 +100,11 @@ class InformationFragment : BaseFragment() {
         val can = can(dmy)
         val chi = chi(dmy)
         tv_can_chi_date.text = resources.getString(
-            R.string.date) + " " + CAN[can[0]] + " " + CHI[chi[0]]
+                R.string.date) + " " + CAN[can[0]] + " " + CHI[chi[0]]
         tv_can_chi_month.text = resources.getString(
-            R.string.month) + " " + CAN[can[1]] + " " + CHI[chi[1]]
+                R.string.month) + " " + CAN[can[1]] + " " + CHI[chi[1]]
         tv_can_chi_year.text = resources.getString(
-            R.string.year) + " " + CAN[can[2]] + " " + CHI[chi[2]]
+                R.string.year) + " " + CAN[can[2]] + " " + CHI[chi[2]]
         val lunaDay = solar2Lunar(dmy)
         tv_date_lunar.text = lunaDay.day.toString()
         val hour = gioHoangDao(dmy)
@@ -118,7 +120,7 @@ class InformationFragment : BaseFragment() {
         tv_hour_gold.text = hourGold
         tv_month.text = resources.getString(R.string.month) + " " + lunaDay.month.toString()
         tv_header_month.text = resources.getString(
-            R.string.month) + " " + dmy.month.toString() + " - " + dmy.year.toString()
+                R.string.month) + " " + dmy.month.toString() + " - " + dmy.year.toString()
         val dayOfWeekData = DayOfWeekData(getDayOfWeek(dmy))
         EventBus.getDefault().post(dayOfWeekData)
     }
@@ -145,8 +147,12 @@ class InformationFragment : BaseFragment() {
 
     override fun handlers() {
         super.handlers()
-        img_navigation.setOnClickListener {
-
+        layout_header?.apply {
+            img_navigation.setOnClickListener {
+                if (this.context is MainActivity) {
+                    (context as MainActivity).openDrawer()
+                }
+            }
         }
     }
 

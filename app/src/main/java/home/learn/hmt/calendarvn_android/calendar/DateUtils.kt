@@ -1,5 +1,6 @@
 package home.learn.hmt.calendarvn_android.calendar
 
+import android.view.View
 import home.learn.hmt.calendarvn_android.data.MONTH
 import home.learn.hmt.calendarvn_android.data.THU
 import home.learn.hmt.calendarvn_android.data.DD_MM_YYYY
@@ -30,3 +31,4 @@ fun getDayOfWeek(dmy: DayMonthYear): String {
     val day = date.day
     return dayOfWeekToString(day)
 }
+

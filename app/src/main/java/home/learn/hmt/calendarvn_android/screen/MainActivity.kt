@@ -18,7 +18,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         setContentView(R.layout.activity_main)
         nav_view.setNavigationItemSelectedListener(this)
         supportFragmentManager.beginTransaction().add(R.id.container,
-            InformationFragment.newInstance(), InformationFragment.TAG).commit()
+                InformationFragment.newInstance(), InformationFragment.TAG).commit()
 
     }
 
@@ -26,10 +26,16 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         when (p0.itemId) {
             R.id.menu_calendar -> {
                 supportFragmentManager.beginTransaction().add(R.id.container,
-                    CalendarFragment.newInstance(), CalendarFragment.TAG).commit()
+                        CalendarFragment.newInstance(), CalendarFragment.TAG).commit()
             }
         }
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
+    }
+
+    fun openDrawer() {
+        if (drawer_layout.isDrawerOpen(GravityCompat.START).not()) {
+            drawer_layout.openDrawer(GravityCompat.START)
+        }
     }
 }
