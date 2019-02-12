@@ -1,0 +1,6 @@
+ext.deps = [:]
+
+def modules = [:]
+modules.domain = project(':domain')
+modules.data = project(':data')
+deps.modules = modules
